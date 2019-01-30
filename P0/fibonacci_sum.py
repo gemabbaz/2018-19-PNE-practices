@@ -1,10 +1,11 @@
 n = input('Introduce a number: ')
 n =int(n)
-counter = 0
-def fibonacci(n):
-    a,b=0,1
-    for i in range(n):
-        counter += a
-        a,b=b,a+b
 
-print(counter)
+def fibonacci(n):
+    counter = 0
+    a,b=0,1
+    for i in range(n-1):
+        a, b = b, a + b
+        counter += a
+    print(counter)
+fibonacci(n)
