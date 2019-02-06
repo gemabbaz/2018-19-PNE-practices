@@ -19,7 +19,7 @@ class Seq:
         return Seq(empty)   #here i've created an object
 
     def reverse(self):
-        return self.strbases[::-1]
+        return Seq(self.strbases[::-1])
 
     def count(self, base):
         result = 0
