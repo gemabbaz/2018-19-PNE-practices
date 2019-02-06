@@ -28,6 +28,9 @@ class Seq:
                 result += 1
         return result
 
+    def perc(self, base):
+        return self.count(base)*100/self.len()
+
 
 s_1 = Seq("AAAGCTCTCGATCTGA")
 str_1 = s_1.strbases
@@ -39,6 +42,12 @@ result_A = s_1.count("A")
 result_G = s_1.count("G")
 result_C = s_1.count("C")
 result_T = s_1.count("T")
+percentage_A = s_1.perc("A")
+percentage_G = s_1.perc("G")
+percentage_C = s_1.perc("C")
+percentage_T = s_1.perc("T")
+
+
 
 
 
@@ -49,4 +58,10 @@ print("The number of times base A shows up is: ", result_A)
 print("The number of times base G shows up is: ", result_G)
 print("The number of times base C shows up is: ", result_C)
 print("The number of times base T shows up is: ", result_T)
+print("The percentage of A is: ", percentage_A)
+print("The percentage of G is: ", percentage_G)
+print("The percentage of C is: ", percentage_C)
+print("The percentage of T is: ", percentage_T)
+
+
 
