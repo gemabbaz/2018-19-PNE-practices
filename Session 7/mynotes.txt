@@ -1,0 +1,33 @@
+We have the client and the server.
+
+Where are the programs running?
+
+They're running inside a computer: mobile phone, tablet or any device with a code. Usually we do not have ony one program but  many. The server will be running on another
+computer with more than one server running different apps.
+
+IP address on my phone: 10.3.53.40
+
+IP address on my computer: 212.128.253.107
+
+To see if the server is working we use the ping command.
+Each line that shows up in the terminal is a ping.
+The ping 8.8.8.8 is Google's ping.
+It shows the time that takes to get to California and come back.
+
+ping time to 8.8.8.8: min/avg/max/mdev = 3.491/3.699/4.458/0.286 ms
+
+ping time to my computer: min/avg/max/mdev = 0.030/0.051/0.061/0.012 ms
+
+ping time to my buddy: min/avg/max/mdev = 0.056/0.059/0.062/0.007 ms
+
+ping time to my mobile phone: min/avg/max/mdev = 2.834/64.940/203.882/37.674 ms
+
+URLS: identifying an IP address
+
+ping time to google: min/avg/max/mdev = 3.474/3.671/4.253/0.229 ms
+
+ping time to github.com = min/avg/max/mdev = 29.041/29.116/29.162/0.043 ms
+
+the web server has a port, so we have to indicate the IP address of the machine and the number 80. We need to know the port number where the server is lovated
+and the IP address to connect to the server. 
+Helloooooo!!! Helloooooo!!! 
