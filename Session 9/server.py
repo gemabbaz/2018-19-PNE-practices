@@ -10,7 +10,7 @@ def process_client(cs): #The parameter will be the socket for communicating with
     # Read client message.
     msg = cs.recv(2048).decode("utf-8")
 
-    termcolor.cprint(msg, 'blue')
+    termcolor.cprint("Message from the client: {}".format(msg), 'blue')
     if msg == 'EXIT':
         sys.exit(0)
 
