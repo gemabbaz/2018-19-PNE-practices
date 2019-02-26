@@ -18,21 +18,8 @@ def process_client(cs):
     print()
     print("Request message: ")
     termcolor.cprint(msg, 'green')
-
-    contents = """
-        <!DOCTYPE html>
-        <html lang="en" dir="ltr">
-          <head>
-            <meta charset="utf-8">
-            <title>Green server</title>
-          </head>
-          <body style="background-color: lightpink;">
-            <h1>GREEN SERVER</h1>
-            <p>YOU ARE BEAUTIFUL! :-)</p>
-          </body>
-        </html>
-        """
-
+    file = open("exerciseHTML.html", "r")
+    contents = file.read()
 
     status_line = "HTTP/1.1 200 ok\r\n" #We always have to finish this line with the \r\n
     heather = "Content-Type: text/html\r\n" #Plain text when you are just sending a simple message, not an image, video etc.
