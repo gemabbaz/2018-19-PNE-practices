@@ -3,7 +3,7 @@ import termcolor
 
 # Change this IP to yours!!!!!
 IP = "212.128.253.96"
-PORT = 8082
+PORT = 8087
 MAX_OPEN_REQUESTS = 5
 
 
@@ -21,15 +21,15 @@ def process_client(cs):
 
     empty = msg.splitlines()
     empty1 = empty[0].lstrip("GET ").rstrip(" HTTP/1.1") #Here we want to delete part of the request message
-    if empty1 == "/ ":
-        file = open("Index.html", "r")
+    if empty1 == "":
+        file = open("Index.html")
         contents = file.read()
         file.close()
-    elif empty == "/pink ":
+    elif empty1 == "/pink":
         file = open("Pink.html")
         contents = file.read()
         file.close()
-    elif empty == "/blue ":
+    elif empty1 == "/blue":
         file = open("Blue.html")
         contents = file.read()
         file.close()
