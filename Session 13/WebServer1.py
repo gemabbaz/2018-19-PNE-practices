@@ -2,7 +2,7 @@ import http.server
 import socketserver
 
 # Define the Server's port
-PORT = 8002
+PORT = 8001
 
 class TestHandler(http.server.BaseHTTPRequestHandler):
 
