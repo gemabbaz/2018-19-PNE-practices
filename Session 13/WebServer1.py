@@ -2,7 +2,7 @@ import http.server
 import socketserver
 
 # Define the Server's port
-PORT = 8006
+PORT = 8002
 
 class TestHandler(http.server.BaseHTTPRequestHandler):
 
@@ -13,6 +13,18 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         print("Path:  " + self.path)
         if self.path == "/":
             file = open("index.html")
+            content = file.read()
+            file.close()
+        elif self.path == "/pink.html":
+            file = open("pink.html")
+            content = file.read()
+            file.close()
+        elif self.path == "/blue.html":
+            file = open("blue.html")
+            content = file.read()
+            file.close()
+        elif self.path == "/green.html":
+            file = open("green.html")
             content = file.read()
             file.close()
         else:
