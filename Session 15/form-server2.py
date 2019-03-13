@@ -3,7 +3,7 @@ import socketserver
 import termcolor
 
 #Server's port
-PORT = 8007
+PORT = 8009
 
 
 # Class with our Handler. It is a called derived from BaseHTTPRequestHandler
@@ -15,14 +15,22 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         # Print the request line
         termcolor.cprint(self.requestline, 'green')
         if self.path == "/":
-            file = open("form1.html")
+            file = open("form12.html")
             contents = file.read()
             file.close()
-        elif "msg" in self.path:
+        elif '/echo' in self.path:
+            if "chk=on" in self.path:
+                message = self.path.split('&')[0]
+                message = message.split('=')[1].upper()
+            else:
+                message = self.path.split('&')[0]
+                message = message.split('=')[1]
+
             file = open("form2.html")
-            echo = self.path[self.path.find("=")+1]
+            echo =  message
             contents = file.read().format(echo)
             file.close()
+
         else:
             file = open("error.html")
             contents = file.read()
