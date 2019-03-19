@@ -11,7 +11,7 @@
   "age": 99,
   "phone": [
     {"number":  "333-3333", "type":  "Home"},
-    {"number":  "444-4444", "type":  "Mobile"}
+    {"number":  "333-3333", "type":  "Mobile"}
     ]},
   {"firstname": "Pepe",
     "lastname": "Sunny",

@@ -10,29 +10,23 @@ ex1 = json.load(f)
 
 person = ex1['Person']
 termcolor.cprint("Number of people : ", 'green', end='')
-print(len(person))
+print("The total number of people is: {}".format(len(person)))
 
-for i, info in enumerate(person):
-    termcolor.cprint("  Person {}:".format(i+1), 'blue')
-
+for a, element in enumerate(person):
     termcolor.cprint("    Name: ", 'red', end='')
-    print(info['firstname'])
+    print(element['firstname'])
     termcolor.cprint("    Lastname: ", 'red', end='')
-    print(info['lastname'])
+    print(element['lastname'])
     termcolor.cprint("    Age: ", 'red', end='')
-    print(info['age'])
+    print(element['age'])
     termcolor.cprint("    Phones available: ", 'red', end='')
-    print(len(info["phone"]))
-
-for i, num in enumerate(person):
-    termcolor.cprint(   "Phone", 'red', end='')
-    print(i)
-    termcolor.cprint(   "Type", 'red', end='')
-    print(num["type"])
-    termcolor.cprint(   "Number", 'red', end='')
-    print(num["number"])
+    print(len(element["phone"]))
 
 
-
-
+    for i, num in enumerate(element['phone']):
+        termcolor.cprint(   "Phone {} ".format(i), 'red', end='')
+        termcolor.cprint(   "Type: ", 'red', end='')
+        print(num["type"])
+        termcolor.cprint(   "Number: ", 'red', end='')
+        print(num["number"])
 
