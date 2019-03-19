@@ -1,0 +1,26 @@
+{"Person": [
+  {"firstname": "Gema",
+  "lastname": "Benito",
+  "age": 19,
+  "phone": [
+    {"number":  "111-1111", "type":  "Home"},
+    {"number":  "222-2222", "type":  "Mobile"}
+    ]},
+  {"firstname": "Pepa",
+  "lastname": "Flower",
+  "age": 99,
+  "phone": [
+    {"number":  "333-3333", "type":  "Home"},
+    {"number":  "444-4444", "type":  "Mobile"}
+    ]},
+  {"firstname": "Pepe",
+    "lastname": "Sunny",
+  "age": 23,
+  "phone": [
+    {"number":  "555-5555", "type":  "Home"},
+    {"number":  "666-6666", "type":  "Mobile"}
+    ]}
+  ]
+}
+
+
