@@ -38,13 +38,13 @@ sequence = json.loads(data1)
 gene = Seq(sequence['seq'])
 
 print("Welcome!! We are working with the sequence: {}".format(gene.strbases))
-print("The FRAT1 gene is {}".format(len(gene.strbases)), "bases long")
-count_T = gene.count("T")
+print("The FRAT1 gene is {}".format(len(gene.strbases)), "bases long") #printing how long the sequence is
+count_T = gene.count("T") #counting the number of bases
 print("There is a total of {}".format(count_T), "thymine bases.")
-popular = collections.Counter(gene.strbases).most_common(1)[0]
+popular = collections.Counter(gene.strbases).most_common(1)[0] #finding the most common base
 
 print("The most frequent character in the sequence is: ", popular[0], "and the percentage is: {}".format(gene.perc(popular[0])))
-perc_a = gene.perc("A")
+perc_a = gene.perc("A") #making all the percentages of every base
 perc_t = gene.perc("T")
 perc_g = gene.perc("G")
 perc_c = gene.perc("C")
