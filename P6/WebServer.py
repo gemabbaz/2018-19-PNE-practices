@@ -10,10 +10,12 @@ PORT = 8006
 
 def ok_bases(seq):  # Checking that the sequence is correct (taken from practice 3)
     bases = 'ACTG'
+    condition = True
     for i in seq: #If the input does not contain A,C,G or T, return false.
         if i not in bases:
-            return False
-    return True
+            condition = False
+            break
+    return condition
 
 # Class with our Handler. It is a called derived from BaseHTTPRequestHandler
 # It means that our class inheritates all his methods and properties
@@ -31,20 +33,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             echo = self.path.split("&")
             seq1 = echo[0][echo[0].find("=")+1:] #Selecting the sequence we'll work with
             if ok_bases(seq1):
-                contents = <"""!DOCTYPE html>
-                            <html lang="en">
-                            <head>
-                                <meta charset="UTF-8">
-                                <title>Linked Servers</title>
-                            </head>
-                            <body style="background-color: tomato">
-                              <h1>ECHO SERVER MESSAGE RECEIVED</h1>
-                              <h2>{}</h2>
-                              <h2>{}</h2>
-                              <h2>{}</h2>
-                              <a href="/">[Main page]</a>
-                            </body>
-                            </html.>""")
+                seq1 = Seq(seq1)
                 lengthmsg = ""
                 task1 = "" #Creating empty variables to fill them up with the correct messages
                 task2 = ""
@@ -52,7 +41,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
                 for i in range(len(echo)):
                     if "chk=on" in echo[i]: #If the user uses the task length
-                        length = seq.len() #Using the length function imported from the Practice 3
+                        length = seq1.len() #Using the length function imported from the Practice 3
                         lengthmsg += "The length of your sequence is: " + str(length) #Printing the information
                     elif "base" in echo[i]:
                         b1 = echo[i].split("=")
@@ -60,17 +49,40 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     elif "operation" in echo[i]:
                         operation1 = echo[i].split("=")
                         if operation1[1] == "perc":
-                            perc = seq.perc(base1)
+                            perc = seq1.perc(base1)
                             task2 += "The percentage of base" + base1 + "is" + str(perc)
                         elif operation1[1] == "count":
-                            counter = seq.strbases.count(base1)
+                            counter = seq1.count(base1)
                             task2 += "Your base shows up" + str(counter) + "times in the sequence"
-
-
-
-
-            contents = contents.format(lengthmsg, task1, task2)
-
+                print(task1, task2, lengthmsg)
+                contents = """
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    
+                    <head>
+                        
+                        <meta charset="UTF-8">
+                        
+                        <title>Linked Servers</title>
+                    
+                    </head>
+                    
+                    <body style="background-color: tomato">
+        
+                      <h1>ECHO SERVER MESSAGE RECEIVED</h1>
+        
+                      <h2>{}</h2>
+        
+                      <h2>{}</h2>
+        
+                      <h2>{}</h2>
+        
+                      <a href="/">[Main page]</a>
+        
+                    </body>
+                
+                    </html>
+                    """.format(lengthmsg, task1, task2)
 
             else:
                 file = open("error.html")
@@ -78,17 +90,16 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 file.close()
         else:
             file = open("error.html")
-            contents = file.read
+            contents = file.read()
             file.close()
-
-
-        self.send_response(200)  # -- Status line: OK!
+        self.send_response(200) # Status line OK!
         self.send_header('Content-Type', 'text/html')
         self.send_header('Content-Length', len(str.encode(contents)))
         self.end_headers()
+        self.wfile.write(str.encode(contents))  #Send the response message
 
-        # Send the response message
-        self.wfile.write(str.encode(contents))
+
+
 
 # ------------------------
 # - Server MAIN program
